@@ -11,12 +11,7 @@ import {
 import { DeleteForever, Edit, Save } from "@material-ui/icons";
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import {
-  checkHandler,
-  removeTask,
-  setIsUpdating,
-  updateTask,
-} from "./taskSlice";
+import { removeTask, setIsUpdating, updateTask } from "./taskSlice";
 
 function Task({ id, text: task, completed, isUpdating }) {
   const [text, setText] = useState(task);
@@ -25,6 +20,7 @@ function Task({ id, text: task, completed, isUpdating }) {
   const textChangeHandler = (event) => {
     setText(event.target.value);
   };
+
   return (
     <ListItem button>
       <ListItemIcon>
@@ -33,7 +29,9 @@ function Task({ id, text: task, completed, isUpdating }) {
           checked={completed}
           tabIndex={-1}
           disableRipple
-          onClick={() => dispatch(checkHandler(id))}
+          onClick={() =>
+            dispatch(updateTask({ id, text, completed: !completed }))
+          }
         />
       </ListItemIcon>
       <ListItemText>
@@ -57,7 +55,7 @@ function Task({ id, text: task, completed, isUpdating }) {
           <IconButton
             edge="end"
             aria-label="comments"
-            onClick={() => dispatch(updateTask({ text, id }))}
+            onClick={() => dispatch(updateTask({ text, id, completed }))}
           >
             <Save color="primary" />
           </IconButton>

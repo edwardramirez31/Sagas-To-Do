@@ -35,12 +35,6 @@ export const taskSlice = createSlice({
     removeTask: (state, action) => {
       state.tasks = state.tasks.filter((task) => task.id !== action.payload);
     },
-    checkHandler: (state, action) => {
-      const taskIndex = state.tasks.findIndex(
-        (task) => task.id === action.payload
-      );
-      state.tasks[taskIndex].isDone = !state.tasks[taskIndex].isDone;
-    },
     setIsUpdating: (state, action) => {
       const newTasks = state.tasks.map((task) => {
         return task.id === action.payload
@@ -49,18 +43,23 @@ export const taskSlice = createSlice({
       });
       state.tasks = newTasks;
     },
-    updateTask: (state, action) => {
-      const newTasks = state.tasks.map((task) => {
-        if (task.id === action.payload.id) {
+    updateTask: (state, _action) => {
+      state.loading = false;
+    },
+    updateTaskSuccess: (state, action) => {
+      const task = action.payload;
+      const newTasks = state.tasks.map((item) => {
+        if (item.id === task.id) {
           return {
             ...task,
-            task: action.payload.text,
+            task: task.text,
             isUpdating: false,
           };
         }
-        return task;
+        return item;
       });
       state.tasks = newTasks;
+      state.loading = false;
     },
   },
 });
@@ -73,9 +72,9 @@ export const {
   getTaskSuccess,
   getTaskError,
   removeTask,
-  checkHandler,
   setIsUpdating,
   updateTask,
+  updateTaskSuccess,
 } = taskSlice.actions;
 
 export default taskSlice.reducer;

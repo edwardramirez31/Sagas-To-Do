@@ -53,7 +53,7 @@ function Form() {
             onBlur={handleBlur}
           />
           <Button
-            // type="submit"
+            type="submit"
             variant="contained"
             color="primary"
             endIcon={<Icon>send</Icon>}

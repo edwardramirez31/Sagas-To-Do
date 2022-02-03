@@ -1,10 +1,17 @@
-import { Container, Paper, Typography } from "@material-ui/core";
+import {
+  Container,
+  LinearProgress,
+  Paper,
+  Typography,
+} from "@material-ui/core";
 import React from "react";
+import { useSelector } from "react-redux";
 import "./App.css";
 import Form from "./components/Form";
 import Tasks from "./containers/Tasks";
 
 function App() {
+  const isLoading = useSelector((state) => state.task.loading);
   return (
     <div className="App">
       <Container maxWidth="md">
@@ -12,7 +19,7 @@ function App() {
         <Paper style={{ padding: 20 }}>
           <Form />
         </Paper>
-        <Tasks />
+        {isLoading ? <LinearProgress /> : <Tasks />}
       </Container>
     </div>
   );

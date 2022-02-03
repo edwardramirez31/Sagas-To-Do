@@ -17,7 +17,7 @@ class DjangoTodo {
   }
 
   static async updateTask(id, data) {
-    const response = await axiosInstance.put(`/task/${id}`, data);
+    const response = await axiosInstance.put(`/task/${id}/`, data);
     return response.data;
   }
 
