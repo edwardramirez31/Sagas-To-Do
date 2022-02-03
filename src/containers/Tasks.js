@@ -1,19 +1,23 @@
 import { List } from "@material-ui/core";
-import React from "react";
+import React, { useEffect } from "react";
+import { useSelector, useDispatch } from "react-redux";
 import Task from "../components/Task";
+import { getTask } from "../components/taskSlice";
 
 function Tasks() {
-  const tasks = [
-    { id: 1, text: "Hello", completed: false },
-    { id: 2, text: "Hello", completed: false },
-    { id: 3, text: "Hello", completed: false },
-  ];
+  const tasks = useSelector((state) => state.task.tasks);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (!tasks.length) {
+      dispatch(getTask());
+    }
+  });
+
   return (
     <List>
-      {tasks.map((value) => {
-        const labelId = `checkbox-list-label-${value}`;
-
-        return <Task key={value} value={value} labelId={labelId} />;
+      {tasks.map((task) => {
+        return <Task key={task.id} {...task} />;
       })}
     </List>
   );

@@ -5,26 +5,63 @@ import {
   ListItemIcon,
   ListItemSecondaryAction,
   ListItemText,
+  TextField,
+  Typography,
 } from "@material-ui/core";
-import CommentIcon from "@material-ui/icons/Comment";
-import React from "react";
-function Task({ value, labelId }) {
+import { DeleteForever, Edit, Save } from "@material-ui/icons";
+import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import {
+  checkHandler,
+  removeTask,
+  setIsUpdating,
+  updateTask,
+} from "./taskSlice";
+
+function Task({ id, text: task, completed, isUpdating }) {
+  const [text, setText] = useState(task);
+  const dispatch = useDispatch();
+
+  const textChangeHandler = (event) => {
+    setText(event.target.value);
+  };
   return (
-    <ListItem dense button>
+    <ListItem button>
       <ListItemIcon>
         <Checkbox
           edge="start"
-          // checked={checked.indexOf(value) !== -1}
+          checked={completed}
           tabIndex={-1}
           disableRipple
-          inputProps={{ "aria-labelledby": labelId }}
+          onClick={() => dispatch(checkHandler(id))}
         />
       </ListItemIcon>
-      <ListItemText id={labelId} primary={`Line item ${value + 1}`} />
+      <ListItemText>
+        {isUpdating ? (
+          <TextField value={text} onChange={textChangeHandler} fullWidth />
+        ) : (
+          <Typography>{text}</Typography>
+        )}
+      </ListItemText>
       <ListItemSecondaryAction>
-        <IconButton edge="end" aria-label="comments">
-          <CommentIcon />
-        </IconButton>
+        {!isUpdating ? (
+          <>
+            <IconButton edge="end" onClick={() => dispatch(setIsUpdating(id))}>
+              <Edit color="primary" />
+            </IconButton>
+            <IconButton edge="end" onClick={() => dispatch(removeTask(id))}>
+              <DeleteForever color="secondary" />
+            </IconButton>
+          </>
+        ) : (
+          <IconButton
+            edge="end"
+            aria-label="comments"
+            onClick={() => dispatch(updateTask({ text, id }))}
+          >
+            <Save color="primary" />
+          </IconButton>
+        )}
       </ListItemSecondaryAction>
     </ListItem>
   );
