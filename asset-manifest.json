@@ -1,0 +1,20 @@
+{
+  "files": {
+    "main.css": "/Sagas-To-Do/static/css/main.aa8c2c01.chunk.css",
+    "main.js": "/Sagas-To-Do/static/js/main.b358a106.chunk.js",
+    "main.js.map": "/Sagas-To-Do/static/js/main.b358a106.chunk.js.map",
+    "runtime-main.js": "/Sagas-To-Do/static/js/runtime-main.a3fe0bb7.js",
+    "runtime-main.js.map": "/Sagas-To-Do/static/js/runtime-main.a3fe0bb7.js.map",
+    "static/js/2.9ee45440.chunk.js": "/Sagas-To-Do/static/js/2.9ee45440.chunk.js",
+    "static/js/2.9ee45440.chunk.js.map": "/Sagas-To-Do/static/js/2.9ee45440.chunk.js.map",
+    "index.html": "/Sagas-To-Do/index.html",
+    "static/css/main.aa8c2c01.chunk.css.map": "/Sagas-To-Do/static/css/main.aa8c2c01.chunk.css.map",
+    "static/js/2.9ee45440.chunk.js.LICENSE.txt": "/Sagas-To-Do/static/js/2.9ee45440.chunk.js.LICENSE.txt"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.a3fe0bb7.js",
+    "static/js/2.9ee45440.chunk.js",
+    "static/css/main.aa8c2c01.chunk.css",
+    "static/js/main.b358a106.chunk.js"
+  ]
+}

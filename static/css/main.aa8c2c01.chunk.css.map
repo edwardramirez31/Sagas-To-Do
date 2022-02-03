@@ -1,0 +1,1 @@
+{"version":3,"sources":["webpack://src/App.css"],"names":[],"mappings":"AAAA,KACE,QAAS,CACT,SAAU,CACV,wBACF,CAEA,KACE,eACF,CAEA,QACE,kBACF","file":"main.aa8c2c01.chunk.css","sourcesContent":["body {\n  margin: 0;\n  padding: 0;\n  background-color: #fcfcfc;\n}\n\n.App {\n  margin-top: 40px;\n}\n\n.App h3 {\n  margin-bottom: 15px;\n}\n"]}
