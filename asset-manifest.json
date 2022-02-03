@@ -1,18 +1,18 @@
 {
   "files": {
-    "main.css": "/todo/static/css/main.aa8c2c01.chunk.css",
-    "main.js": "/todo/static/js/main.88e210d1.chunk.js",
-    "main.js.map": "/todo/static/js/main.88e210d1.chunk.js.map",
-    "runtime-main.js": "/todo/static/js/runtime-main.db6c7c7d.js",
-    "runtime-main.js.map": "/todo/static/js/runtime-main.db6c7c7d.js.map",
-    "static/js/2.87f2309f.chunk.js": "/todo/static/js/2.87f2309f.chunk.js",
-    "static/js/2.87f2309f.chunk.js.map": "/todo/static/js/2.87f2309f.chunk.js.map",
-    "index.html": "/todo/index.html",
-    "static/css/main.aa8c2c01.chunk.css.map": "/todo/static/css/main.aa8c2c01.chunk.css.map",
-    "static/js/2.87f2309f.chunk.js.LICENSE.txt": "/todo/static/js/2.87f2309f.chunk.js.LICENSE.txt"
+    "main.css": "/edwardramirez31.github.io/static/css/main.aa8c2c01.chunk.css",
+    "main.js": "/edwardramirez31.github.io/static/js/main.88e210d1.chunk.js",
+    "main.js.map": "/edwardramirez31.github.io/static/js/main.88e210d1.chunk.js.map",
+    "runtime-main.js": "/edwardramirez31.github.io/static/js/runtime-main.6b16241f.js",
+    "runtime-main.js.map": "/edwardramirez31.github.io/static/js/runtime-main.6b16241f.js.map",
+    "static/js/2.87f2309f.chunk.js": "/edwardramirez31.github.io/static/js/2.87f2309f.chunk.js",
+    "static/js/2.87f2309f.chunk.js.map": "/edwardramirez31.github.io/static/js/2.87f2309f.chunk.js.map",
+    "index.html": "/edwardramirez31.github.io/index.html",
+    "static/css/main.aa8c2c01.chunk.css.map": "/edwardramirez31.github.io/static/css/main.aa8c2c01.chunk.css.map",
+    "static/js/2.87f2309f.chunk.js.LICENSE.txt": "/edwardramirez31.github.io/static/js/2.87f2309f.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.db6c7c7d.js",
+    "static/js/runtime-main.6b16241f.js",
     "static/js/2.87f2309f.chunk.js",
     "static/css/main.aa8c2c01.chunk.css",
     "static/js/main.88e210d1.chunk.js"
