@@ -3,7 +3,6 @@ import Icon from "@material-ui/core/Icon";
 import { Formik } from "formik";
 import React from "react";
 import { useDispatch } from "react-redux";
-import { v4 as uuidv4 } from "uuid";
 import * as Yup from "yup";
 import { addTask } from "./taskSlice";
 
