@@ -15,6 +15,7 @@ class Stack {
   get item() {
     return this.items[this.top];
   }
+
   pop() {
     const item = this.items[this.top];
     delete this.items[this.top];
@@ -23,21 +24,21 @@ class Stack {
   }
 }
 
-describe("My Stack", () => {
+describe('My Stack', () => {
   let stack;
   beforeEach(() => {
     stack = new Stack();
   });
-  test("can be created", () => {
+  test('can be created', () => {
     expect(stack.top).toBe(-1);
     expect(stack.items).toEqual({});
   });
-  test("can push to the top", () => {
+  test('can push to the top', () => {
     stack.push(4);
     expect(stack.top).toBe(0);
     expect(stack.item).toBe(4);
   });
-  test("can pop off", () => {
+  test('can pop off', () => {
     stack.push(4);
     stack.push(5);
     expect(stack.top).toBe(1);
@@ -53,8 +54,8 @@ function clone(array) {
   return [...array];
 }
 
-describe("Cloning array", () => {
-  test("new place in memory", () => {
+describe('Cloning array', () => {
+  test('new place in memory', () => {
     const array = [1, 2, 3, 4];
     const clonedArray = clone(array);
     expect(array).not.toBe(clonedArray);
@@ -63,20 +64,20 @@ describe("Cloning array", () => {
 });
 
 function sumar(a, b) {
-  if (typeof a !== "number" || typeof b !== "number") {
-    throw new TypeError("Both arguments should be valid numbers");
+  if (typeof a !== 'number' || typeof b !== 'number') {
+    throw new TypeError('Both arguments should be valid numbers');
   }
   return a + b;
 }
 
-describe("simple sum", () => {
-  test("sum", () => {
+describe('simple sum', () => {
+  test('sum', () => {
     expect(sumar(1, 3)).toBe(4);
     expect(sumar(0, 0)).toBe(0);
     expect(sumar(0, -5)).toBe(-5);
   });
 
-  test("passing null", () => {
+  test('passing null', () => {
     expect(() => sumar(null, 5)).toThrow(TypeError);
   });
 });

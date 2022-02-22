@@ -1,4 +1,5 @@
-import { all, put, call, takeEvery } from "redux-saga/effects";
+/* eslint-disable no-console */
+import { all, put, call, takeEvery } from 'redux-saga/effects';
 import {
   addTask,
   addTaskError,
@@ -9,13 +10,13 @@ import {
   removeTask,
   updateTask,
   updateTaskSuccess,
-} from "../../../components/taskSlice";
-import DjangoTodo from "../.././../api/djangoTodo";
+} from '../../../components/taskSlice';
+import DjangoTodo from '../../../api/djangoTodo';
 
 function* addTaskSaga({ payload: data }) {
   try {
-    console.log("HERE");
-    const newTask = yield call([DjangoTodo, "createTask"], data);
+    console.log('HERE');
+    const newTask = yield call([DjangoTodo, 'createTask'], data);
     yield put(addTaskSuccess(newTask));
   } catch (error) {
     yield put(addTaskError(error.message));
@@ -24,7 +25,7 @@ function* addTaskSaga({ payload: data }) {
 
 function* getTaskSaga() {
   try {
-    const tasks = yield call([DjangoTodo, "getTasks"]);
+    const tasks = yield call([DjangoTodo, 'getTasks']);
     yield put(getTaskSuccess(tasks));
   } catch (error) {
     yield put(getTaskError(error.message));
@@ -33,7 +34,7 @@ function* getTaskSaga() {
 
 function* removeTaskSaga({ payload: id }) {
   try {
-    const response = yield call([DjangoTodo, "deleteTask"], id);
+    const response = yield call([DjangoTodo, 'deleteTask'], id);
     console.log(response);
   } catch (error) {
     console.log(error.message);
@@ -42,7 +43,7 @@ function* removeTaskSaga({ payload: id }) {
 
 function* updateTaskSaga({ payload: { id, text, completed } }) {
   try {
-    const task = yield call([DjangoTodo, "updateTask"], id, {
+    const task = yield call([DjangoTodo, 'updateTask'], id, {
       text,
       completed,
     });
@@ -53,6 +54,7 @@ function* updateTaskSaga({ payload: { id, text, completed } }) {
 }
 
 export default function* tasksSaga() {
+  // eslint-disable-next-line redux-saga/no-unhandled-errors
   yield all([
     takeEvery(addTask, addTaskSaga),
     takeEvery(getTask, getTaskSaga),

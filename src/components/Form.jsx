@@ -1,10 +1,10 @@
-import { Button, TextField } from "@material-ui/core";
-import Icon from "@material-ui/core/Icon";
-import { Formik } from "formik";
-import React from "react";
-import { useDispatch } from "react-redux";
-import * as Yup from "yup";
-import { addTask } from "./taskSlice";
+import { Button, TextField } from '@material-ui/core';
+import Icon from '@material-ui/core/Icon';
+import { Formik } from 'formik';
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import * as Yup from 'yup';
+import { addTask } from './taskSlice';
 
 function Form() {
   const dispatch = useDispatch();
@@ -21,30 +21,23 @@ function Form() {
   return (
     <Formik
       initialValues={{
-        text: "",
+        text: '',
       }}
       validationSchema={formSchema}
       onSubmit={submitHandler}
     >
-      {({
-        values,
-        errors,
-        touched,
-        handleChange,
-        handleSubmit,
-        handleBlur,
-      }) => (
+      {({ values, errors, touched, handleChange, handleSubmit, handleBlur }) => (
         <form
           style={{
-            display: "flex",
-            alignItems: "baseline",
-            justifyContent: "space-around",
+            display: 'flex',
+            alignItems: 'baseline',
+            justifyContent: 'space-around',
           }}
           onSubmit={handleSubmit}
         >
           <TextField
             label="Add a text"
-            style={{ width: "85%" }}
+            style={{ width: '85%' }}
             name="text"
             value={values.text}
             onChange={handleChange}
@@ -57,7 +50,7 @@ function Form() {
             variant="contained"
             color="primary"
             endIcon={<Icon>send</Icon>}
-            style={{ width: "10%" }}
+            style={{ width: '10%' }}
           >
             Add
           </Button>

@@ -1,7 +1,9 @@
-import { createSlice } from "@reduxjs/toolkit";
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-param-reassign */
+import { createSlice } from '@reduxjs/toolkit';
 
 export const taskSlice = createSlice({
-  name: "task",
+  name: 'task',
   initialState: {
     tasks: [],
     loading: false,
@@ -36,11 +38,9 @@ export const taskSlice = createSlice({
       state.tasks = state.tasks.filter((task) => task.id !== action.payload);
     },
     setIsUpdating: (state, action) => {
-      const newTasks = state.tasks.map((task) => {
-        return task.id === action.payload
-          ? { ...task, isUpdating: true }
-          : task;
-      });
+      const newTasks = state.tasks.map((task) =>
+        task.id === action.payload ? { ...task, isUpdating: true } : task
+      );
       state.tasks = newTasks;
     },
     updateTask: (state, _action) => {
