@@ -1,3 +1,10 @@
+## [1.0.1](https://github.com/edwardramirez31/my-app/compare/v1.0.0...v1.0.1) (2022-02-22)
+
+
+### Bug Fixes
+
+* final instructions for semantic release ([bd71179](https://github.com/edwardramirez31/my-app/commit/bd711798dd2672a40d95639795086aa7a394fd4e))
+
 # 1.0.0 (2022-02-22)
 
 
