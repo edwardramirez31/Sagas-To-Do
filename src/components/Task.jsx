@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import {
   Checkbox,
   IconButton,
@@ -7,11 +8,11 @@ import {
   ListItemText,
   TextField,
   Typography,
-} from "@material-ui/core";
-import { DeleteForever, Edit, Save } from "@material-ui/icons";
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import { removeTask, setIsUpdating, updateTask } from "./taskSlice";
+} from '@material-ui/core';
+import { DeleteForever, Edit, Save } from '@material-ui/icons';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { removeTask, setIsUpdating, updateTask } from './taskSlice';
 
 function Task({ id, text: task, completed, isUpdating }) {
   const [text, setText] = useState(task);
@@ -29,9 +30,7 @@ function Task({ id, text: task, completed, isUpdating }) {
           checked={completed}
           tabIndex={-1}
           disableRipple
-          onClick={() =>
-            dispatch(updateTask({ id, text, completed: !completed }))
-          }
+          onClick={() => dispatch(updateTask({ id, text, completed: !completed }))}
         />
       </ListItemIcon>
       <ListItemText>

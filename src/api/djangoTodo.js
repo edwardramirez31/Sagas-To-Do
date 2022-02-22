@@ -1,8 +1,8 @@
-import axiosInstance from "../axiosInstance";
+import axiosInstance from '../axiosInstance';
 
 class DjangoTodo {
   static async getTasks() {
-    const response = await axiosInstance.get("/");
+    const response = await axiosInstance.get('/');
     return response.data;
   }
 
@@ -22,8 +22,7 @@ class DjangoTodo {
   }
 
   static async createTask(data) {
-    console.log(data);
-    const response = await axiosInstance.post("/", data);
+    const response = await axiosInstance.post('/', data);
     return response.data;
   }
 }
