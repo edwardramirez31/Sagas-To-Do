@@ -5,8 +5,8 @@ import Task from '../components/Task';
 import { getTask } from '../components/taskSlice';
 
 function Tasks() {
-  const tasks = useSelector((state) => state.task.tasks);
   const dispatch = useDispatch();
+  const tasks = useSelector((state) => state.task.tasks);
 
   useEffect(() => {
     if (!tasks.length) {
@@ -17,8 +17,13 @@ function Tasks() {
   return (
     <List>
       {tasks.map((task) => (
-        // eslint-disable-next-line react/jsx-props-no-spreading
-        <Task key={task.id} {...task} />
+        <Task
+          key={task.id}
+          id={task.id}
+          text={task.text}
+          completed={task.completed}
+          isUpdating={task.isUpdating}
+        />
       ))}
     </List>
   );
