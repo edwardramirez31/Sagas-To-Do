@@ -1,3 +1,10 @@
+## [1.0.2](https://github.com/edwardramirez31/my-app/compare/v1.0.1...v1.0.2) (2022-02-23)
+
+
+### Bug Fixes
+
+* change html title tag to use todo app ([19be829](https://github.com/edwardramirez31/my-app/commit/19be829a394ea7af62062c128d07e47e2cb33eac))
+
 ## [1.0.1](https://github.com/edwardramirez31/my-app/compare/v1.0.0...v1.0.1) (2022-02-22)
 
 
