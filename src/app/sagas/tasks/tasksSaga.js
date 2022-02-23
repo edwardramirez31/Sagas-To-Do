@@ -1,5 +1,6 @@
 /* eslint-disable no-console */
 import { all, put, call, takeEvery } from 'redux-saga/effects';
+import DjangoTodo from '../../../api/djangoTodo';
 import {
   addTask,
   addTaskError,
@@ -11,11 +12,9 @@ import {
   updateTask,
   updateTaskSuccess,
 } from '../../../components/taskSlice';
-import DjangoTodo from '../../../api/djangoTodo';
 
 function* addTaskSaga({ payload: data }) {
   try {
-    console.log('HERE');
     const newTask = yield call([DjangoTodo, 'createTask'], data);
     yield put(addTaskSuccess(newTask));
   } catch (error) {
@@ -54,11 +53,14 @@ function* updateTaskSaga({ payload: { id, text, completed } }) {
 }
 
 export default function* tasksSaga() {
-  // eslint-disable-next-line redux-saga/no-unhandled-errors
-  yield all([
-    takeEvery(addTask, addTaskSaga),
-    takeEvery(getTask, getTaskSaga),
-    takeEvery(removeTask, removeTaskSaga),
-    takeEvery(updateTask, updateTaskSaga),
-  ]);
+  try {
+    yield all([
+      takeEvery(addTask, addTaskSaga),
+      takeEvery(getTask, getTaskSaga),
+      takeEvery(removeTask, removeTaskSaga),
+      takeEvery(updateTask, updateTaskSaga),
+    ]);
+  } catch (error) {
+    console.log(error);
+  }
 }
