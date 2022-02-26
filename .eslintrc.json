@@ -51,6 +51,18 @@
         "@typescript-eslint/no-unused-vars": [
             "error",
             { "argsIgnorePattern": "^_action$" }
+        ],
+        "import/no-extraneous-dependencies": [
+          "error",
+          {
+            "devDependencies": [
+              "src/setupTests.js",
+              "**/*.spec.js",
+              "**/*.spec.jsx",
+              "**/*.spec.ts",
+              "**/*.spec.tsx"
+            ]
+          }
         ]
     },
     "settings": {
