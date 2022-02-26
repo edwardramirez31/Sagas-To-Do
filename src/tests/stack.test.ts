@@ -1,22 +1,31 @@
 // npm install --save-dev jest
 // npm install --save-dev @types/jest
 // jest --watchAll --verbose --coverage
+
+interface Items {
+  [key: number]: number;
+}
+
 class Stack {
+  top: number;
+
+  items: Items;
+
   constructor() {
     this.top = -1;
     this.items = {};
   }
 
-  push(item) {
+  push(item: number): void {
     this.top += 1;
     this.items[this.top] = item;
   }
 
-  get item() {
+  get item(): number {
     return this.items[this.top];
   }
 
-  pop() {
+  pop(): number {
     const item = this.items[this.top];
     delete this.items[this.top];
     this.top -= 1;
@@ -25,7 +34,7 @@ class Stack {
 }
 
 describe('My Stack', () => {
-  let stack;
+  let stack: Stack;
   beforeEach(() => {
     stack = new Stack();
   });
@@ -50,7 +59,7 @@ describe('My Stack', () => {
   });
 });
 
-function clone(array) {
+function clone(array: Array<number>): Array<number> {
   return [...array];
 }
 
@@ -63,7 +72,7 @@ describe('Cloning array', () => {
   });
 });
 
-function sumar(a, b) {
+function sumar(a: number | null, b: number | null): number {
   if (typeof a !== 'number' || typeof b !== 'number') {
     throw new TypeError('Both arguments should be valid numbers');
   }
@@ -81,3 +90,5 @@ describe('simple sum', () => {
     expect(() => sumar(null, 5)).toThrow(TypeError);
   });
 });
+
+export {};

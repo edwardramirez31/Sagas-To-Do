@@ -1,52 +1,73 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-param-reassign */
 import { createSlice } from '@reduxjs/toolkit';
+import type { PayloadAction } from '@reduxjs/toolkit';
+
+export interface DjangoTask {
+  text: string;
+  completed: boolean;
+  id: number;
+}
+
+export interface Task {
+  text: string;
+  completed: boolean;
+  id: number;
+  isUpdating: boolean;
+}
+
+interface InitialState {
+  tasks: Task[];
+  loading: boolean;
+  error: string | null;
+}
+
+const initialState: InitialState = {
+  tasks: [],
+  loading: false,
+  error: null,
+};
 
 export const taskSlice = createSlice({
   name: 'task',
-  initialState: {
-    tasks: [],
-    loading: false,
-    error: null,
-  },
+  initialState,
   reducers: {
-    addTask: (state, _action) => {
+    addTask: (state, _action: PayloadAction<{ text: string; completed: boolean }>) => {
       state.loading = true;
     },
-    addTaskSuccess: (state, action) => {
+    addTaskSuccess: (state, action: PayloadAction<DjangoTask>) => {
       // { id: 1, text: "Hello", completed: false }
-      state.tasks = [...state.tasks, action.payload];
+      state.tasks = [...state.tasks, { ...action.payload, isUpdating: false }];
       state.loading = false;
     },
-    addTaskError: (state, action) => {
+    addTaskError: (state, action: PayloadAction<string>) => {
       state.error = action.payload;
       state.loading = false;
     },
-    getTask: (state, _action) => {
+    getTask: (state) => {
       state.loading = true;
     },
-    getTaskSuccess: (state, action) => {
+    getTaskSuccess: (state, action: PayloadAction<Array<DjangoTask>>) => {
       // { id: 1, text: "Hello", completed: false }
-      state.tasks = [...state.tasks, ...action.payload];
+      const tasks = action.payload.map((item) => ({ ...item, isUpdating: false }));
+      state.tasks = [...state.tasks, ...tasks];
       state.loading = false;
     },
-    getTaskError: (state, action) => {
+    getTaskError: (state, action: PayloadAction<string>) => {
       state.error = action.payload;
       state.loading = false;
     },
-    removeTask: (state, action) => {
+    removeTask: (state, action: PayloadAction<number>) => {
       state.tasks = state.tasks.filter((task) => task.id !== action.payload);
     },
-    setIsUpdating: (state, action) => {
+    setIsUpdating: (state, action: PayloadAction<number>) => {
       const newTasks = state.tasks.map((task) =>
         task.id === action.payload ? { ...task, isUpdating: true } : task
       );
       state.tasks = newTasks;
     },
-    updateTask: (state, _action) => {
+    updateTask: (state, _action: PayloadAction<DjangoTask>) => {
       state.loading = false;
     },
-    updateTaskSuccess: (state, action) => {
+    updateTaskSuccess: (state, action: PayloadAction<DjangoTask>) => {
       const task = action.payload;
       const newTasks = state.tasks.map((item) => {
         if (item.id === task.id) {
@@ -78,6 +99,3 @@ export const {
 } = taskSlice.actions;
 
 export default taskSlice.reducer;
-// id, text, completed
-// https://edwardramirez.pythonanywhere.com/
-// https://edwardramirez.pythonanywhere.com/task/1/

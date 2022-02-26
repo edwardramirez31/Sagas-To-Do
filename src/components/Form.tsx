@@ -4,19 +4,14 @@ import { Formik } from 'formik';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import * as Yup from 'yup';
-import { addTask } from './taskSlice';
+import { addTask } from '../app/slices/taskSlice';
 
-function Form() {
+const Form: React.VFC = () => {
   const dispatch = useDispatch();
 
   const formSchema = Yup.object().shape({
     text: Yup.string().required(),
   });
-
-  const submitHandler = (data, formikHelpers) => {
-    dispatch(addTask({ ...data, completed: false }));
-    formikHelpers.resetForm();
-  };
 
   return (
     <Formik
@@ -24,9 +19,12 @@ function Form() {
         text: '',
       }}
       validationSchema={formSchema}
-      onSubmit={submitHandler}
+      onSubmit={(data, helpers): void => {
+        dispatch(addTask({ ...data, completed: false }));
+        helpers.resetForm();
+      }}
     >
-      {({ values, errors, touched, handleChange, handleSubmit, handleBlur }) => (
+      {({ values, errors, touched, handleChange, handleSubmit, handleBlur }): JSX.Element => (
         <form
           style={{
             display: 'flex',
@@ -58,6 +56,6 @@ function Form() {
       )}
     </Formik>
   );
-}
+};
 
 export default Form;
