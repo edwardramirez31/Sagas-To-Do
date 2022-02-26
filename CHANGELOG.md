@@ -1,3 +1,10 @@
+# [2.2.0](https://github.com/edwardramirez31/my-app/compare/v2.1.0...v2.2.0) (2022-02-26)
+
+
+### Features
+
+* adding test for required alert labels ([56fba10](https://github.com/edwardramirez31/my-app/commit/56fba10ff71b27067469324e607174a2db521ebc))
+
 # [2.1.0](https://github.com/edwardramirez31/my-app/compare/v2.0.0...v2.1.0) (2022-02-26)
 
 
