@@ -14,7 +14,8 @@ const App = (): JSX.Element => {
         <Paper style={{ padding: 20 }}>
           <Form />
         </Paper>
-        {isLoading ? <LinearProgress /> : <Tasks />}
+        {isLoading && <LinearProgress />}
+        <Tasks />
       </Container>
     </div>
   );
