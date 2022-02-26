@@ -1,3 +1,15 @@
+# [2.0.0](https://github.com/edwardramirez31/my-app/compare/v1.0.2...v2.0.0) (2022-02-26)
+
+
+### Features
+
+* use typescript ([2124160](https://github.com/edwardramirez31/my-app/commit/212416047d8e4004fdd2e86702b7577c1e746e20))
+
+
+### BREAKING CHANGES
+
+* eslint, tsconfig and folder structure
+
 ## [1.0.2](https://github.com/edwardramirez31/my-app/compare/v1.0.1...v1.0.2) (2022-02-23)
 
 
