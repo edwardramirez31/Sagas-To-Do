@@ -33,6 +33,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "CI=true react-scripts test",
+    "test:watch": "react-scripts test",
     "eject": "react-scripts eject",
     "lint": "eslint --ext .js,.jsx,.ts,.tsx --max-warnings=0 .",
     "predeploy": "npm run build",
@@ -43,6 +44,21 @@
       "react-app",
       "react-app/jest"
     ]
+  },
+  "jest": {
+    "resetMocks": false,
+    "collectCoverageFrom": [
+      "src/**/*.{ts,tsx,js,jsx}",
+      "!src/types/**/*.ts"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "statements": 51,
+        "branches": 32,
+        "functions": 39,
+        "lines": 52
+      }
+    }
   },
   "browserslist": {
     "production": [
