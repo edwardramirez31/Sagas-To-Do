@@ -40,4 +40,29 @@ describe('Form component', () => {
     expect(dispatchSpy).toHaveBeenCalledWith(addTask({ text: 'Mock Task', completed: false }));
     expect(screen.queryByDisplayValue('Mock Task')).toBeNull();
   });
+
+  it('should render warning label', async () => {
+    render(<Form />);
+    // initial value should be empty string
+    const input = screen.getByDisplayValue('');
+    // type something
+    userEvent.click(input);
+    userEvent.click(screen.getByText('Add'));
+    // dispatch should not be called
+    await waitFor(() => expect(screen.getByText('This is required')).toBeInTheDocument());
+
+    expect(dispatchSpy).toHaveBeenCalledTimes(0);
+    // error label should be visible
+    expect(screen.getByText('This is required')).toBeInTheDocument();
+
+    userEvent.type(screen.getByDisplayValue(''), 'M');
+    // should disappear
+    await waitFor(() => expect(screen.queryByText('This is required')).toBeNull());
+    expect(screen.queryByText('This is required')).toBeNull();
+
+    userEvent.type(screen.getByDisplayValue('M'), '{backspace}');
+    // should appear
+    await waitFor(() => expect(screen.getByText('This is required')).toBeInTheDocument());
+    expect(screen.getByText('This is required')).toBeInTheDocument();
+  });
 });
