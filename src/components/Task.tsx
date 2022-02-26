@@ -1,4 +1,3 @@
-/* eslint-disable react/prop-types */
 import {
   Checkbox,
   IconButton,
@@ -10,15 +9,25 @@ import {
   Typography,
 } from '@material-ui/core';
 import { DeleteForever, Edit, Save } from '@material-ui/icons';
-import React, { useState } from 'react';
+import type { PayloadAction } from '@reduxjs/toolkit';
+import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { removeTask, setIsUpdating, updateTask } from './taskSlice';
+import type { DjangoTask } from '../app/slices/taskSlice';
+import { removeTask, setIsUpdating, updateTask } from '../app/slices/taskSlice';
 
-function Task({ id, text: task, completed, isUpdating }) {
-  const [text, setText] = useState(task);
+interface Props {
+  id: number;
+  text: string;
+  completed: boolean;
+  isUpdating: boolean;
+}
+
+const Task: React.VFC<Props> = ({ id, text: task, completed, isUpdating }) => {
+  const [text, setText] = useState<string>(task);
   const dispatch = useDispatch();
-
-  const textChangeHandler = (event) => {
+  const textChangeHandler = (
+    event: React.ChangeEvent<HTMLTextAreaElement | HTMLInputElement>
+  ): void => {
     setText(event.target.value);
   };
 
@@ -30,7 +39,9 @@ function Task({ id, text: task, completed, isUpdating }) {
           checked={completed}
           tabIndex={-1}
           disableRipple
-          onClick={() => dispatch(updateTask({ id, text, completed: !completed }))}
+          onClick={(): PayloadAction<DjangoTask> =>
+            dispatch(updateTask({ id, text, completed: !completed }))
+          }
         />
       </ListItemIcon>
       <ListItemText>
@@ -43,10 +54,13 @@ function Task({ id, text: task, completed, isUpdating }) {
       <ListItemSecondaryAction>
         {!isUpdating ? (
           <>
-            <IconButton edge="end" onClick={() => dispatch(setIsUpdating(id))}>
+            <IconButton
+              edge="end"
+              onClick={(): PayloadAction<number> => dispatch(setIsUpdating(id))}
+            >
               <Edit color="primary" />
             </IconButton>
-            <IconButton edge="end" onClick={() => dispatch(removeTask(id))}>
+            <IconButton edge="end" onClick={(): PayloadAction<number> => dispatch(removeTask(id))}>
               <DeleteForever color="secondary" />
             </IconButton>
           </>
@@ -54,7 +68,7 @@ function Task({ id, text: task, completed, isUpdating }) {
           <IconButton
             edge="end"
             aria-label="comments"
-            onClick={() => dispatch(updateTask({ text, id, completed }))}
+            onClick={(): PayloadAction<DjangoTask> => dispatch(updateTask({ text, id, completed }))}
           >
             <Save color="primary" />
           </IconButton>
@@ -62,6 +76,6 @@ function Task({ id, text: task, completed, isUpdating }) {
       </ListItemSecondaryAction>
     </ListItem>
   );
-}
+};
 
 export default Task;

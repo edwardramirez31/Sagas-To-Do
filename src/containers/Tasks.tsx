@@ -1,12 +1,13 @@
 import { List } from '@material-ui/core';
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Task from '../components/Task';
-import { getTask } from '../components/taskSlice';
+import { getTask } from '../app/slices/taskSlice';
+import { getTasks } from '../app/selectors/tasks';
 
-function Tasks() {
+const Tasks = (): JSX.Element => {
   const dispatch = useDispatch();
-  const tasks = useSelector((state) => state.task.tasks);
+  const tasks = useSelector(getTasks);
 
   useEffect(() => {
     if (!tasks.length) {
@@ -27,6 +28,6 @@ function Tasks() {
       ))}
     </List>
   );
-}
+};
 
 export default Tasks;

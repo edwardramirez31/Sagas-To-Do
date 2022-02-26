@@ -1,13 +1,12 @@
 import { Container, LinearProgress, Paper, Typography } from '@material-ui/core';
-/* eslint-disable react/jsx-filename-extension */
-import React from 'react';
+import { getTasksLoading } from 'app/selectors/tasks';
 import { useSelector } from 'react-redux';
 import './App.css';
 import Form from './components/Form';
 import Tasks from './containers/Tasks';
 
-function App() {
-  const isLoading = useSelector((state) => state.task.loading);
+const App = (): JSX.Element => {
+  const isLoading = useSelector(getTasksLoading);
   return (
     <div className="App">
       <Container maxWidth="md">
@@ -19,6 +18,6 @@ function App() {
       </Container>
     </div>
   );
-}
+};
 
 export default App;

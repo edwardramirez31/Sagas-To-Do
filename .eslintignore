@@ -3,4 +3,5 @@ dist
 coverage
 
 !.huskyrc.js
-!.commitlintrc.js
+.commitlintrc.js
+jest.setup.js
