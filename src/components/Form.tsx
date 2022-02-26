@@ -10,7 +10,7 @@ const Form: React.VFC = () => {
   const dispatch = useDispatch();
 
   const formSchema = Yup.object().shape({
-    text: Yup.string().required(),
+    text: Yup.string().required('This is required'),
   });
 
   return (
