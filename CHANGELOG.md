@@ -1,3 +1,12 @@
+## [2.2.1](https://github.com/edwardramirez31/my-app/compare/v2.2.0...v2.2.1) (2022-03-16)
+
+
+### Bug Fixes
+
+* change main yml file name ([5c51307](https://github.com/edwardramirez31/my-app/commit/5c513077b429704a96416df92c02ee9a05d1b1de))
+* separating tests from build and also check semantic release ([8576e1d](https://github.com/edwardramirez31/my-app/commit/8576e1d5df0424a801a6852f0954468d40f04fa8))
+* show loading bar along with tasks component ([f95062d](https://github.com/edwardramirez31/my-app/commit/f95062d6d38ae72eeceb0bb50f457aa40e4087ab))
+
 # [2.2.0](https://github.com/edwardramirez31/my-app/compare/v2.1.0...v2.2.0) (2022-02-26)
 
 
