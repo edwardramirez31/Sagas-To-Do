@@ -1,3 +1,10 @@
+# [2.4.0](https://github.com/edwardramirez31/my-app/compare/v2.3.0...v2.4.0) (2022-03-17)
+
+
+### Features
+
+* add testing for redux sagas ([b86b3d6](https://github.com/edwardramirez31/my-app/commit/b86b3d63cb49e8f89f849c3698a32a8d7569b42f))
+
 # [2.3.0](https://github.com/edwardramirez31/my-app/compare/v2.2.1...v2.3.0) (2022-03-17)
 
 
