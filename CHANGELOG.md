@@ -1,3 +1,10 @@
+# [2.3.0](https://github.com/edwardramirez31/my-app/compare/v2.2.1...v2.3.0) (2022-03-17)
+
+
+### Features
+
+* add testing for selectors and task slice reducer ([87afe80](https://github.com/edwardramirez31/my-app/commit/87afe8054a6264f011816ac304200ad8e51e52cf))
+
 ## [2.2.1](https://github.com/edwardramirez31/my-app/compare/v2.2.0...v2.2.1) (2022-03-16)
 
 
