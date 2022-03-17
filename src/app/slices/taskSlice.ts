@@ -20,7 +20,7 @@ interface InitialState {
   error: string | null;
 }
 
-const initialState: InitialState = {
+export const initialState: InitialState = {
   tasks: [],
   loading: false,
   error: null,
@@ -65,7 +65,7 @@ export const taskSlice = createSlice({
       state.tasks = newTasks;
     },
     updateTask: (state, _action: PayloadAction<DjangoTask>) => {
-      state.loading = false;
+      state.loading = true;
     },
     updateTaskSuccess: (state, action: PayloadAction<DjangoTask>) => {
       const task = action.payload;
@@ -73,7 +73,6 @@ export const taskSlice = createSlice({
         if (item.id === task.id) {
           return {
             ...task,
-            task: task.text,
             isUpdating: false,
           };
         }

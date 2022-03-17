@@ -1,4 +1,4 @@
-import type { Task } from '../app/slices/taskSlice';
+import type { DjangoTask, Task } from '../app/slices/taskSlice';
 
 export const MOCKED_INCOMPLETED_TASKS: Task[] = [
   { text: 'TO DO MOCK', completed: false, id: 1, isUpdating: false },
@@ -13,3 +13,23 @@ export const MOCKED_COMPLETED_TASKS: Task[] = [
 ];
 
 export const MOCKED_TASK: Task = { text: 'TO DO MOCK', completed: false, id: 1, isUpdating: false };
+
+export const MOCKED_COMPLETED_TASK: Task = {
+  text: 'TO DO MOCK',
+  completed: true,
+  id: 1,
+  isUpdating: true,
+};
+
+export const MOCKED_COMPLETED_TASK_NOT_UPDATING: Task = {
+  text: 'TO DO MOCK',
+  completed: true,
+  id: 1,
+  isUpdating: false,
+};
+
+export const MOCKED_COMPLETED_DJANGO_TASK: DjangoTask = {
+  text: 'TO DO MOCK',
+  completed: true,
+  id: 1,
+};
