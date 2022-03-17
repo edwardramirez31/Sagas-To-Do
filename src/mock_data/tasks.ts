@@ -33,3 +33,27 @@ export const MOCKED_COMPLETED_DJANGO_TASK: DjangoTask = {
   completed: true,
   id: 1,
 };
+
+export const MOCKED_INCOMPLETED_DJANGO_TASK: DjangoTask = {
+  text: 'TO DO MOCK',
+  completed: false,
+  id: 1,
+};
+
+export const MOCKED_COMPLETED_DJANGO_TASKS: DjangoTask[] = [
+  {
+    text: 'TO DO MOCK',
+    completed: true,
+    id: 1,
+  },
+  {
+    text: 'TO DO MOCK 2',
+    completed: true,
+    id: 2,
+  },
+  {
+    text: 'TO DO MOCK 3',
+    completed: true,
+    id: 3,
+  },
+];
