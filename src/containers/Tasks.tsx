@@ -13,7 +13,7 @@ const Tasks = (): JSX.Element => {
     if (!tasks.length) {
       dispatch(getTask());
     }
-  });
+  }, [tasks.length]);
 
   return (
     <List>
