@@ -1,3 +1,10 @@
+## [2.4.2](https://github.com/edwardramirez31/my-app/compare/v2.4.1...v2.4.2) (2022-08-31)
+
+
+### Bug Fixes
+
+* missing dependencies at use effect ([e233e91](https://github.com/edwardramirez31/my-app/commit/e233e917d5f0640b92a9a5e787273a814dd9cdaf))
+
 ## [2.4.1](https://github.com/edwardramirez31/my-app/compare/v2.4.0...v2.4.1) (2022-08-31)
 
 
