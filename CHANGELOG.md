@@ -1,3 +1,10 @@
+## [2.4.1](https://github.com/edwardramirez31/my-app/compare/v2.4.0...v2.4.1) (2022-08-31)
+
+
+### Bug Fixes
+
+* solve infinite use effect loop ([4345157](https://github.com/edwardramirez31/my-app/commit/4345157d7e3917502d15bbb17aecfb4aac193d42))
+
 # [2.4.0](https://github.com/edwardramirez31/my-app/compare/v2.3.0...v2.4.0) (2022-03-17)
 
 
